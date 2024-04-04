@@ -1,0 +1,31 @@
+sudo: required
+ 
+before_install:
+  - echo Welcome
+ 
+jobs:
+  include:
+    - arch: amd64
+      language: cpp
+      compiler:
+        - gcc
+      jdk: openjdk11
+      script:
+        - which java
+        - java -version
+        - echo $JAVA_HOME
+        - ls $JAVA_HOME
+    - arch: ppc64le
+      group: power-focal
+      language: cpp
+      compiler:
+        - gcc
+      jdk: openjdk11
+      script:
+        - which java
+        - java -version
+        - echo $JAVA_HOME
+        - ls $JAVA_HOME
+
+script:
+  - echo Bye
